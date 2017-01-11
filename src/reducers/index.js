@@ -1,14 +1,4 @@
-const initialState = {
-	isXTurn: true,
-	playerIsX: true,
-	computerScore: 0,
-	playerScore: 0,
-	board: Array(9).fill(null),
-	round: 1,
-	roundOver: false,
-};
-
-function tictacfoeApp(state=initialState, action) {
+function tictacfoeApp(state, action) {
 	switch (action.type) {
 		case 'MARK_SQUARE':
 			return Object.assign({}, state, {
