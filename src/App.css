@@ -1,10 +1,14 @@
+h1 {
+	font-size: 3em;
+}
+
 .main-container {
 	margin: auto;
 	text-align: center;
 }
 
 .board-container {
-	margin: auto;
+	margin: 50px auto;
 	max-width: 210px;
 }
 
@@ -26,6 +30,33 @@
 	padding: 0;
 	text-align: center;
 	width: 70px;
+}
+
+/* SCOREBOARD */
+
+.scoreboard-container {
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 400px;
+	height: 180px;
+	margin: auto;
+	position: relative;
+}
+
+.player-score {
+	font-size: 1.3em;
+	width: 150px;
+	position: absolute;
+	left: 10px;
+	bottom: 0;
+}
+
+.computer-score {
+	font-size: 1.3em;
+	width: 150px;
+	position: absolute;
+	right: 10px;
+	bottom: 0;
 }
 
 /* BUTTON SELECTION BORDER REMOVAL*/

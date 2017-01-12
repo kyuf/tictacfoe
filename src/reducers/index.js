@@ -24,7 +24,7 @@ function tictacfoeApp(state, action) {
 			return Object.assign({}, state, {
 				isXTurn: true,
 				playerIsX: !state.playerIsX,
-				spaces: Array(9).fill(null),
+				spaces: Array(9).fill(''),
 				round: state.round + 1,
 				roundOver: false,
 			});

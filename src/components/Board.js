@@ -4,7 +4,6 @@ import Space from './Space'
 const Board = ({ spaces, onSpaceClick, roundOver }) => {
   return (
     <div className="board-container">
-      <h2>Board</h2>
       <div className="board-row">
       	<Space
       		value={spaces[0]}
