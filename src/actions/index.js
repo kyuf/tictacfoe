@@ -1,25 +1,25 @@
-function markSquareOnBoard(player, index) {
+export const markSpaceOnBoard = (player, index) => {
 	return {
-		type: 'MARK_SQUARE',
+		type: 'MARK_SPACE',
 		player,
 		index,
 	};
 }
 
-function startNewRound() {
+export const startNewRound = () => {
 	return {
 		action: 'NEW_ROUND',
 	};
 }
 
-function increaseScore(player) {
+export const increaseScore = (player) => {
 	return {
 		type: 'ADD_POINT',
 		player,
 	};
 }
 
-function endRound() {
+export const endRound = () => {
 	return {
 		type: 'END_ROUND',
 	}
