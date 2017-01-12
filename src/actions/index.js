@@ -1,7 +1,6 @@
-export const markSpaceOnBoard = (player, index) => {
+export const markSpaceOnBoard = (index) => {
 	return {
 		type: 'MARK_SPACE',
-		player,
 		index,
 	};
 }
@@ -12,10 +11,9 @@ export const startNewRound = () => {
 	};
 }
 
-export const increaseScore = (player) => {
+export const increaseScore = () => {
 	return {
 		type: 'ADD_POINT',
-		player,
 	};
 }
 

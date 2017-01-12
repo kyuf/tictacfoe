@@ -1,0 +1,38 @@
+.main-container {
+	margin: auto;
+	text-align: center;
+}
+
+.board-container {
+	margin: auto;
+	max-width: 210px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.space {
+	border: 3px solid black;
+	float: left;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 34px;
+	height: 70px;
+	margin-right: -1px;
+	margin-top: -1px;
+	padding: 0;
+	text-align: center;
+	width: 70px;
+}
+
+/* BUTTON SELECTION BORDER REMOVAL*/
+:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border:0;
+}

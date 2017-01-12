@@ -10,12 +10,14 @@ let store = createStore(tictacfoeApp, {
 	playerIsX: true,
 	computerScore: 0,
 	playerScore: 0,
-	board: Array(9).fill(null),
+	spaces: Array(9).fill(''),
 	round: 1,
 	roundOver: false,
 });
 
 ReactDOM.render(
-  <App />,
+	<Provider store={store}>
+  		<App />
+  	</Provider>,
   document.getElementById('root')
 );

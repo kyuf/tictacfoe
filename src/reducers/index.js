@@ -1,15 +1,16 @@
 function tictacfoeApp(state, action) {
 	switch (action.type) {
-		case 'MARK_SQUARE':
+		case 'MARK_SPACE':
 			return Object.assign({}, state, {
-				board: state.board.map((space, i) => (
-					i === action.index ? action.player : space
+				spaces: state.spaces.map((space, i) => (
+					(i === action.index && !space) ?
+					(state.isXTurn ? 'X' : 'O') : space
 				)),
-				isXTurn: !state.isXTurn,
+				isXTurn: !state.spaces[action.index] ^ state.isXTurn,
 			});
 		case 'ADD_POINT':
 			// logic uses XOR operators
-			let pWin = !(!(action.player === 'X') ^ !state.playerIsX) ? 1 : 0;
+			let pWin = (state.isXTurn ^ state.playerIsX) ? 1 : 0;
 			return Object.assign({}, state, {
 				// logic uses XOR operators
 				playerScore: state.playerScore + pWin,
@@ -23,7 +24,7 @@ function tictacfoeApp(state, action) {
 			return Object.assign({}, state, {
 				isXTurn: true,
 				playerIsX: !state.playerIsX,
-				board: Array(9).fill(null),
+				spaces: Array(9).fill(null),
 				round: state.round + 1,
 				roundOver: false,
 			});
