@@ -10,15 +10,3 @@ export const startNewRound = () => {
 		action: 'NEW_ROUND',
 	};
 }
-
-export const increaseScore = () => {
-	return {
-		type: 'ADD_POINT',
-	};
-}
-
-export const endRound = () => {
-	return {
-		type: 'END_ROUND',
-	}
-}
