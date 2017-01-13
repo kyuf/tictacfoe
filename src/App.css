@@ -59,6 +59,15 @@ h1 {
 	bottom: 0;
 }
 
+.new-button {
+	font-size: 1em;
+	border-radius: 10px;
+	background: white;
+	padding: 10px 10px;
+	border: 2px solid black;
+	margin-top: 30px;
+}
+
 /* BUTTON SELECTION BORDER REMOVAL*/
 :focus {
   outline: none;

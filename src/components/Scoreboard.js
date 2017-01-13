@@ -12,7 +12,10 @@ const Scoreboard = ({
 	return (
 		<div className="scoreboard-container">
 			<h2>ROUND {roundOver ? 'OVER' : round}</h2>
-			{roundOver && <button onClick={onClick}>New Game</button>}
+			{roundOver
+				&& <button
+					className="new-button"
+					onClick={onClick}>NEW GAME</button>}
 			<div className="score-container">
 				<Score
 					score={playerScore}
