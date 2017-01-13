@@ -57,6 +57,7 @@ function tictacfoeApp(state, action) {
 				playerIsX: !state.playerIsX,
 				spaces: Array(9).fill(''),
 				round: state.round + 1,
+				turn: 1,
 				roundOver: false,
 			});
 		default:

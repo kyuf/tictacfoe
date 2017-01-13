@@ -7,6 +7,6 @@ export const markSpaceOnBoard = (index) => {
 
 export const startNewRound = () => {
 	return {
-		action: 'NEW_ROUND',
+		type: 'NEW_ROUND',
 	};
 }

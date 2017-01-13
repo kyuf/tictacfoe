@@ -10,7 +10,7 @@ const mapStateToProps = ({ isXTurn, spaces, roundOver }) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		onSpaceClick: (i) => {
 			dispatch(markSpaceOnBoard(i))
