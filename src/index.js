@@ -13,6 +13,7 @@ let store = createStore(tictacfoeApp, {
 	spaces: Array(9).fill(''),
 	round: 1,
 	roundOver: false,
+	turn: 1,
 });
 
 ReactDOM.render(

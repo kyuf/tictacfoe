@@ -32,9 +32,12 @@ function tictacfoeApp(state, action) {
 					(state.isXTurn ? 'X' : 'O') : space
 				)),
 				isXTurn: !state.spaces[action.index] ^ state.isXTurn,
+				turn: state.turn + (!state.spaces[action.index] ? 1 : 0),
 			};
 
-			let end = {};
+			let end = {
+				roundOver: state.turn === 9,
+			};
 
 			if (checkWin(mark['spaces'])) {
 				// logic uses XOR operators
