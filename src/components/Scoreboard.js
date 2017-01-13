@@ -8,13 +8,20 @@ const Scoreboard = ({
 	roundOver,
 	onClick,
 }) => {
+	let evenRound = round % 2 === 0;
 	return (
 		<div className="scoreboard-container">
 			<h2>ROUND {roundOver ? 'OVER' : round}</h2>
 			{roundOver && <button onClick={onClick}>New Game</button>}
 			<div className="score-container">
-				<Score score={playerScore} isPlayer={true} />
-				<Score score={computerScore} isPlayer={false} />
+				<Score
+					score={playerScore}
+					isPlayer={true}
+					evenRound={evenRound} />
+				<Score
+					score={computerScore}
+					isPlayer={false}
+					evenRound={evenRound} />
 			</div>
 		</div>
 	);
