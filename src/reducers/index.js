@@ -1,5 +1,6 @@
 function tictacfoeApp(state, action) {
 	function checkWin(spaces) {
+		// someone has won if one of the following patterns is made
 		const indices = [
 			[0, 1, 2],
 			[3, 4, 5],
@@ -22,10 +23,12 @@ function tictacfoeApp(state, action) {
 
 	switch (action.type) {
 		case 'MARK_SPACE':
-			if (state.roundOver) {
+			// do nothing if round is over or not player's turn
+			if (state.roundOver || (state.playerIsX ^ state.isXTurn)) {
 				return state
 			}
 
+			// only mark a space if it is blank
 			let mark = {
 				spaces: state.spaces.map((space, i) => (
 					(i === action.index && !space) ?
@@ -35,10 +38,12 @@ function tictacfoeApp(state, action) {
 				turn: state.turn + (!state.spaces[action.index] ? 1 : 0),
 			};
 
+			// round is over if board is filled
 			let end = {
 				roundOver: state.turn === 9,
 			};
 
+			// check for win and update state accordingly
 			if (checkWin(mark['spaces'])) {
 				// logic uses XOR operators
 				let pWin = (!state.isXTurn ^ state.playerIsX) ? 1 : 0;
