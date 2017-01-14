@@ -2,11 +2,9 @@ import { connect } from 'react-redux';
 import { markSpaceOnBoard } from '../actions/index';
 import Board from '../components/Board';
 
-const mapStateToProps = ({ isXTurn, spaces, roundOver }) => {
+const mapStateToProps = ({ spaces }) => {
 	return {
-		isXTurn,
 		spaces,
-		roundOver,
 	}
 }
 

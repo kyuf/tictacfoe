@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Space from './Space'
 
-const Board = ({ spaces, onSpaceClick, roundOver }) => {
+const Board = ({ spaces, onSpaceClick }) => {
   const nums = [0, 1, 2];
   return (
     <div className="board-container">
