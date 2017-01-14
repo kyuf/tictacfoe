@@ -10,3 +10,11 @@ export const startNewRound = () => {
 		type: 'NEW_ROUND',
 	};
 }
+
+export const computerMove = (spaces, playerIsX) => {
+	return {
+		type: 'COMPUTER_MOVE',
+		spaces,
+		computerIsX: !playerIsX,
+	}
+}
