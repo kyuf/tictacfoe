@@ -48,8 +48,7 @@ function tictacfoeApp(state, action) {
 			});
 
 		case 'COMPUTER_MOVE':
-			minimax(state.spaces, state.isXTurn);
-			return state;
+			return Object.assign({}, state, minimax(state));
 
 		default:
 			return state;

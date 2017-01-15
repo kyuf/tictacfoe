@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import { markSpaceOnBoard, computerMove } from '../actions/index';
 import Board from '../components/Board';
 
-const mapStateToProps = ({ spaces, playerIsX, isXTurn }) => {
+const mapStateToProps = ({ spaces, playerIsX, isXTurn, roundOver }) => {
 	return {
 		spaces,
 		isXTurn,
 		playerIsX,
+		roundOver,
 	}
 }
 
