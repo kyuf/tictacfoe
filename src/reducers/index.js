@@ -1,5 +1,5 @@
 import { checkWin } from '../win';
-import { minimax } from '../brain';
+import { computerAI } from '../brain';
 
 function tictacfoeApp(state, action) {
 	switch (action.type) {
@@ -27,10 +27,8 @@ function tictacfoeApp(state, action) {
 			// check for win and update state accordingly
 			if (checkWin(mark['spaces'])) {
 				// logic uses XOR operators
-				let pWin = (!state.isXTurn ^ state.playerIsX) ? 1 : 0;
 				end = Object.assign({}, end, {
-					playerScore: state.playerScore + pWin,
-					computerScore: state.computerScore + (1 - pWin),
+					playerScore: state.playerScore + 1,
 					roundOver: true,
 				});
 			}
@@ -48,7 +46,7 @@ function tictacfoeApp(state, action) {
 			});
 
 		case 'COMPUTER_MOVE':
-			return Object.assign({}, state, minimax(state));
+			return Object.assign({}, state, computerAI(state));
 
 		default:
 			return state;
