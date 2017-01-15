@@ -69,7 +69,7 @@ function tictacfoeApp(state, action) {
 			});
 
 		case 'COMPUTER_MOVE':
-			minimax();
+			minimax(state.spaces, state.isXTurn);
 			return state;
 
 		default:

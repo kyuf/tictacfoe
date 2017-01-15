@@ -11,10 +11,8 @@ export const startNewRound = () => {
 	};
 }
 
-export const computerMove = (spaces, isXTurn) => {
+export const computerMove = () => {
 	return {
 		type: 'COMPUTER_MOVE',
-		spaces,
-		isXTurn,
 	}
 }
