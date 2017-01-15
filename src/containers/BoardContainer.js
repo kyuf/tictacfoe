@@ -16,8 +16,8 @@ const mapDispatchToProps = (dispatch) => {
 		onSpaceClick: (index) => {
 			dispatch(markSpaceOnBoard(index))
 		},
-		onComputerTurn: (spaces, isXTurn) => {
-			dispatch(computerMove(spaces, isXTurn))
+		onComputerTurn: () => {
+			dispatch(computerMove())
 		},
 	}
 }
@@ -25,6 +25,6 @@ const mapDispatchToProps = (dispatch) => {
 const BoardContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(Board)
+)(Board);
 
 export default BoardContainer;

@@ -16,3 +16,10 @@ export const computerMove = () => {
 		type: 'COMPUTER_MOVE',
 	}
 }
+
+export const changeMode = (newMode) => {
+	return {
+		type: 'CHANGE_MODE',
+		newMode,
+	}
+}

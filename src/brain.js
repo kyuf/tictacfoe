@@ -1,27 +1,38 @@
 import { checkWin } from './win';
 
-export const computerAI = ({ spaces, isXTurn, turn, computerScore }) => {
+export const computerAI = ({ spaces, isXTurn, turn, computerScore, mode }) => {
 	const mark = isXTurn ? 'X' : 'O';
 	spaces = spaces.slice();
 
 	// mark center if it is available (first/second move)
-	if (!spaces[4]) {
-		spaces[4] = mark;
-	} else if (turn === 2) {
-		// mark a random corner
-		let r = [0, 2, 6, 8][Math.floor(Math.random() * 4)];
+
+	// determine available moves
+	let moves = new Set();
+	for (let i in spaces) {  // in returns indices of array
+		if (!spaces[i]) {
+			moves.add(i);
+		}
+	}
+
+	// random selection mode
+	console.log(mode);
+	if (mode === 'Normal') {
+		let r = [...moves][Math.floor(Math.random() * moves.size)];
+		console.log(r);
 		spaces[r] = mark;
 	} else {
-		// determine available moves
-		let moves = new Set();
-		for (let i in spaces) {  // in returns indices of array
-			if (!spaces[i]) {
-				moves.add(i);
-			}
+		// impossible mode
+		if (!spaces[4]) {
+			spaces[4] = mark;
+		} else if (turn === 2) {
+			// mark a random corner
+			let cor = [0, 2, 6, 8][Math.floor(Math.random() * 4)];
+			spaces[cor] = mark;
+		} else {
+			// use minimax to determine best move
+			let { ind } = minimax(spaces, isXTurn, moves, true);
+			spaces[ind] = mark;
 		}
-		// use minimax to determine best move
-		let { ind } = minimax(spaces, isXTurn, moves, true);
-		spaces[ind] = mark;
 	}
 
 	let end = {};
