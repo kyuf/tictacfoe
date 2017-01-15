@@ -15,7 +15,7 @@ let store = createStore(tictacfoeApp, {
 	roundOver: false,
 	turn: 1,
 	result: "Cat's Game!",
-	mode: '!',
+	mode: 'NORMAL',
 });
 
 ReactDOM.render(

@@ -53,10 +53,15 @@ function tictacfoeApp(state, action) {
 			return Object.assign({}, state, computerAI(state));
 
 		case 'CHANGE_MODE':
-			return Object.assign({}, state, {
-				mode: action.newMode,
-			});
-
+			console.log(action.newMode)
+			if (action.newMode === state.mode) {
+				return state;
+			} else {
+				return Object.assign({}, state, {
+					mode: action.newMode,
+				});
+			}
+			
 		default:
 			return state;
 	}

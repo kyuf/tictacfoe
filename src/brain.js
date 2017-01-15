@@ -4,8 +4,6 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore, mode }) => {
 	const mark = isXTurn ? 'X' : 'O';
 	spaces = spaces.slice();
 
-	// mark center if it is available (first/second move)
-
 	// determine available moves
 	let moves = new Set();
 	for (let i in spaces) {  // in returns indices of array
@@ -15,12 +13,12 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore, mode }) => {
 	}
 
 	// random selection mode
-	if (mode === 'Normal') {
+	if (mode === 'NORMAL') {
 		let r = [...moves][Math.floor(Math.random() * moves.size)];
-		console.log(r);
 		spaces[r] = mark;
 	} else {
 		// impossible mode
+		// mark center if it is available (first/second move)
 		if (!spaces[4]) {
 			spaces[4] = mark;
 		} else if (turn === 2) {
