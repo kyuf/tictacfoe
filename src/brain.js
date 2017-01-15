@@ -30,6 +30,7 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore }) => {
 		end = {
 			roundOver: true,
 			computerScore: computerScore + 1,
+			result: 'Computer Wins!',
 		};
 	} else if (turn === 9) {
 		end = {roundOver: true};

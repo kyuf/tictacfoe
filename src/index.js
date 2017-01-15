@@ -14,6 +14,7 @@ let store = createStore(tictacfoeApp, {
 	round: 1,
 	roundOver: false,
 	turn: 1,
+	result: "Cat's Game!",
 });
 
 ReactDOM.render(

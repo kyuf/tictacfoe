@@ -7,12 +7,14 @@ const mapStateToProps = ({
 	playerScore,
 	computerScore,
 	roundOver,
+	result,
 }) => {
 	return {
 		round,
 		playerScore,
 		computerScore,
 		roundOver,
+		result,
 	};
 };
 

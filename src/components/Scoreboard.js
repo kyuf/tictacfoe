@@ -7,11 +7,13 @@ const Scoreboard = ({
 	computerScore,
 	roundOver,
 	onClick,
+	result,
 }) => {
 	let evenRound = round % 2 === 0;
 	return (
 		<div className="scoreboard-container">
 			<h2>ROUND {roundOver ? 'OVER' : round}</h2>
+			{roundOver && <p className='result'>{result}</p>}
 			{roundOver
 				&& <button
 					className="new-button"

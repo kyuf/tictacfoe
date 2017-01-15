@@ -31,6 +31,7 @@ function tictacfoeApp(state, action) {
 				// logic uses XOR operators
 				end = Object.assign({}, end, {
 					playerScore: state.playerScore + 1,
+					result: 'Player Wins!',
 					roundOver: true,
 				});
 			}
