@@ -1,3 +1,5 @@
+import { minimax } from '../brain';
+
 function tictacfoeApp(state, action) {
 	function checkWin(spaces) {
 		// someone has won if one of the following patterns is made
@@ -65,6 +67,11 @@ function tictacfoeApp(state, action) {
 				turn: 1,
 				roundOver: false,
 			});
+
+		case 'COMPUTER_MOVE':
+			minimax();
+			return state;
+
 		default:
 			return state;
 	}

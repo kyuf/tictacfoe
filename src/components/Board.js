@@ -3,7 +3,10 @@ import Space from './Space'
 
 class Board extends Component {
   componentDidUpdate() {
-    
+    // only fire on computer turn
+    if (this.props.playerIsX ^ this.props.isXTurn) {
+      this.props.onComputerTurn(this.props.spaces, this.props.isXTurn);
+    }
   }
 
   render() {

@@ -1,18 +1,23 @@
 import { connect } from 'react-redux';
-import { markSpaceOnBoard } from '../actions/index';
+import { markSpaceOnBoard, computerMove } from '../actions/index';
 import Board from '../components/Board';
 
-const mapStateToProps = ({ spaces }) => {
+const mapStateToProps = ({ spaces, playerIsX, isXTurn }) => {
 	return {
 		spaces,
+		isXTurn,
+		playerIsX,
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onSpaceClick: (i) => {
-			dispatch(markSpaceOnBoard(i))
-		}
+		onSpaceClick: (index) => {
+			dispatch(markSpaceOnBoard(index))
+		},
+		onComputerTurn: (spaces, isXTurn) => {
+			dispatch(computerMove(spaces, isXTurn))
+		},
 	}
 }
 
