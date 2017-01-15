@@ -46,6 +46,7 @@ function tictacfoeApp(state, action) {
 				round: state.round + 1,
 				turn: 1,
 				roundOver: false,
+				result: "Cat's Game!"
 			});
 
 		case 'COMPUTER_MOVE':

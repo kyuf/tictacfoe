@@ -15,7 +15,6 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore, mode }) => {
 	}
 
 	// random selection mode
-	console.log(mode);
 	if (mode === 'Normal') {
 		let r = [...moves][Math.floor(Math.random() * moves.size)];
 		console.log(r);
