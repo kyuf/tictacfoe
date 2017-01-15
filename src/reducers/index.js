@@ -4,19 +4,21 @@ import { computerAI } from '../brain';
 function tictacfoeApp(state, action) {
 	switch (action.type) {
 		case 'MARK_SPACE':
-			// do nothing if round is over or not player's turn
-			if (state.roundOver || (state.playerIsX ^ state.isXTurn)) {
+			// do nothing if round is over or not player's turn or space filled
+			if (state.roundOver
+				|| (state.playerIsX ^ state.isXTurn)
+				|| (state.spaces[action.index])) {
 				return state
 			}
 
 			// only mark a space if it is blank
 			let mark = {
 				spaces: state.spaces.map((space, i) => (
-					(i === action.index && !space) ?
+					(i === action.index) ?
 					(state.isXTurn ? 'X' : 'O') : space
 				)),
-				isXTurn: !state.spaces[action.index] ^ state.isXTurn,
-				turn: state.turn + (!state.spaces[action.index] ? 1 : 0),
+				isXTurn: !state.isXTurn,
+				turn: state.turn + 1,
 			};
 
 			// round is over if board is filled
