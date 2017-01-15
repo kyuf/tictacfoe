@@ -20,7 +20,7 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore }) => {
 			}
 		}
 		// use minimax to determine best move
-		let { ind } = minimax(spaces, isXTurn, mark, moves);
+		let { ind } = minimax(spaces, isXTurn, moves, true);
 		spaces[ind] = mark;
 	}
 
@@ -45,25 +45,25 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore }) => {
 }
 
 // returns which index the computer should mark
-function minimax (spaces, isXTurn, mark, moves) {
+function minimax (spaces, isXTurn, moves, isCmpTurn) {
 	// continue search only if round not over
-	const isComputerTurn = mark === 'X' ^ isXTurn;
 	if (checkWin(spaces)) {
-		return {val: isComputerTurn ? -1 : 1};
+		// adjust value of winning move to favor faster wins
+		return {val: isCmpTurn ? -1 : 1 + moves.size};
 	} else if (!moves.size) {
 		return {val: 0};
 	} else {
 		let newSpaces, newMoves;
 		let best = {
-			val: isComputerTurn ? -2 : 2,
+			val: isCmpTurn ? -2 : 2,
 		};
 		for (let i of moves) {
 			newSpaces = spaces.slice();
 			newMoves = new Set(moves);
 			newMoves.delete(i);
 			newSpaces[i] = isXTurn ? 'X' : 'O';
-			let { val } = minimax(newSpaces, !isXTurn, mark, newMoves);
-			if (isComputerTurn) {
+			let { val } = minimax(newSpaces, !isXTurn, newMoves, !isCmpTurn);
+			if (isCmpTurn) {
 				if (val > best['val']) {
 					best = {val, ind: i};
 				}
