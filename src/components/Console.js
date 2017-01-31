@@ -5,9 +5,9 @@ const Console = ({ mode, onModeClick }) => {
 	return (
 		<div className="console-container">
 			<ModeButton
-				active={mode === 'NORMAL'}
-				label='NORMAL'
-				onClick={() => onModeClick('NORMAL')} />
+				active={mode === 'EASY'}
+				label='EASY'
+				onClick={() => onModeClick('EASY')} />
 			<ModeButton
 				active={mode === 'IMPOSSIBLE'}
 				label='IMPOSSIBLE'

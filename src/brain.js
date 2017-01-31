@@ -13,7 +13,7 @@ export const computerAI = ({ spaces, isXTurn, turn, computerScore, mode }) => {
 	}
 
 	// random selection mode
-	if (mode === 'NORMAL') {
+	if (mode === 'EASY') {
 		let r = [...moves][Math.floor(Math.random() * moves.size)];
 		spaces[r] = mark;
 	} else {
